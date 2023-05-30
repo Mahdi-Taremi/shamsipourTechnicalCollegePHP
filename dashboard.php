@@ -1,15 +1,17 @@
 <?php
 session_start();
+include "Config.php";
+
 if (!isset($_COOKIE['user_id']) || $_COOKIE['user_id'] == '') {
     header('Location: index.php');
     exit;
 }
-// Connect to MySQL database
-$conn = mysqli_connect('localhost', 'root', '', 'mahditatemi');
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+// // Connect to MySQL database
+// $conn = mysqli_connect('localhost', 'root', '', 'mahditatemi');
+// // Check connection
+// if (!$conn) {
+//     die("Connection failed: " . mysqli_connect_error());
+// }
 $user_id = $_COOKIE['user_id'];
 // Get user data from database
 $sql = "SELECT * FROM users WHERE id = '$user_id'";

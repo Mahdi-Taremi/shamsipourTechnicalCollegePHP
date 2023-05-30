@@ -3,6 +3,12 @@
 include './Header.php';
 ?>
 <!-- Header End -->
+<?php
+if (!(isset($_COOKIE['user_id']) && $_COOKIE['user_id'] != '')) {
+  header("Location: ./Login.php");
+  // die();
+}
+?>
 <!DOCTYPE html>
 <html lang="fa">
 
