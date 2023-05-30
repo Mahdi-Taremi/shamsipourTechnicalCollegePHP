@@ -16,6 +16,7 @@
 
 <?php
 session_start();
+include "Config.php";
 ?>
 <!-- Header Start -->
 <!-- <div class="b-example-divider"></div> -->
@@ -23,11 +24,13 @@ session_start();
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="#" class="d-block link-dark text-decoration-none" aria-expanded="false">
-                <img src="./assets/dist/img/MT.jpg" alt="mdo" width="42" height="42" class="rounded-circle">
+                <img src="./assets/dist/img/home.png" alt="mdo" width="25" height="25">
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="./index.php" class="nav-link px-2 link-secondary">Home</a></li>
+                <li>
+                    <a href="./index.php" class="nav-link px-2 link-secondary">Home</a>
+                </li>
                 <li><a href="#" class="nav-link px-2 link-dark">Info</a></li>
                 <?php
                 if (isset($_COOKIE['user_id']) && $_COOKIE['user_id'] != '') {

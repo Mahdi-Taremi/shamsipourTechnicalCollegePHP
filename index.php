@@ -20,16 +20,6 @@
             <th scope="col">Delete</th>
         </tr>
         <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "mahditatemi";
-
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
 
         $sql = "SELECT id,productName,price,numberOfProducts,description FROM product";
         $result = $conn->query($sql);
