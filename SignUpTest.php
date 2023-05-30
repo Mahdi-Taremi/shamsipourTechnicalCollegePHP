@@ -29,6 +29,8 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO users (fullName,username, password) VALUES ('$fullName','$username', '$password')";
         if (mysqli_query($conn, $sql)) {
             $user_id = mysqli_insert_id($conn);
+            // var_dump($user_id);
+            // die();
             setcookie('user_id', $user_id, time() + (86400 * 30), "/");
             header('Location: index.php');
             exit;

@@ -26,17 +26,33 @@ if (isset($_POST['submit'])) {
     }
     // Check if user exists in database
     $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        // $_SESSION['user_id'] = $row['id'];
-        setcookie('user_id', $user_id, time() + (86400 * 30), "/");
+    $result = $conn->query($sql);
 
-        header('Location: index.php');
-        exit;
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            // $_SESSION['user_id'] = $row['id'];
+            setcookie('user_id', $row['id'], time() + (86400 * 30), "/");
+            header('Location: index.php');
+            echo "id: " . $row["id"] . " - Name: " . $row["username"] . " " . $row["password"] . "<br>";
+        }
     } else {
-        $error = 'Invalid username or password';
+        echo "0 results";
     }
+    // $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    // $result = mysqli_query($conn, $sql);
+    // var_dump($result);
+    // die();
+    // if (mysqli_num_rows($result) > 0) {
+    //     $row = mysqli_fetch_assoc($result);
+    //     // $_SESSION['user_id'] = $row['id'];
+    //     setcookie('user_id', $user_id, time() + (86400 * 30), "/");
+
+    //     header('Location: index.php');
+    //     exit;
+    // } else {
+    //     $error = 'Invalid username or password';
+    // }
     mysqli_close($conn);
 }
 ?>
