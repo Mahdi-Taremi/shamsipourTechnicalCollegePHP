@@ -1,5 +1,5 @@
 <?php
-
+include './Header.php';
 // Get form information
 $xproductName = $_POST['productName'];
 $xprice = $_POST['price'];

@@ -1,5 +1,5 @@
 <?php
-
+include './Header.php';
 // Delete record from database
 $id = $_GET['id'];
 $sql = "DELETE FROM product WHERE id=$id";
